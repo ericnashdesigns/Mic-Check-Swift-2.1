@@ -1,0 +1,513 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		070684751BE08EB60065FA44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070684741BE08EB60065FA44 /* AppDelegate.swift */; };
+		070684771BE08EB60065FA44 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070684761BE08EB60065FA44 /* RootViewController.swift */; };
+		070684791BE08EB60065FA44 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070684781BE08EB60065FA44 /* DataViewController.swift */; };
+		0706847B1BE08EB60065FA44 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706847A1BE08EB60065FA44 /* ModelController.swift */; };
+		0706847E1BE08EB60065FA44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0706847C1BE08EB60065FA44 /* Main.storyboard */; };
+		070684801BE08EB60065FA44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0706847F1BE08EB60065FA44 /* Assets.xcassets */; };
+		070684831BE08EB60065FA44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 070684811BE08EB60065FA44 /* LaunchScreen.storyboard */; };
+		0706848E1BE08EB60065FA44 /* MicCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706848D1BE08EB60065FA44 /* MicCheckTests.swift */; };
+		070684991BE08EB60065FA44 /* MicCheckUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070684981BE08EB60065FA44 /* MicCheckUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0706848A1BE08EB60065FA44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 070684691BE08EB60065FA44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 070684701BE08EB60065FA44;
+			remoteInfo = MicCheck;
+		};
+		070684951BE08EB60065FA44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 070684691BE08EB60065FA44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 070684701BE08EB60065FA44;
+			remoteInfo = MicCheck;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		070684711BE08EB60065FA44 /* MicCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MicCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		070684741BE08EB60065FA44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		070684761BE08EB60065FA44 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		070684781BE08EB60065FA44 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		0706847A1BE08EB60065FA44 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
+		0706847D1BE08EB60065FA44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0706847F1BE08EB60065FA44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		070684821BE08EB60065FA44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		070684841BE08EB60065FA44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		070684891BE08EB60065FA44 /* MicCheckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MicCheckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0706848D1BE08EB60065FA44 /* MicCheckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicCheckTests.swift; sourceTree = "<group>"; };
+		0706848F1BE08EB60065FA44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		070684941BE08EB60065FA44 /* MicCheckUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MicCheckUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		070684981BE08EB60065FA44 /* MicCheckUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicCheckUITests.swift; sourceTree = "<group>"; };
+		0706849A1BE08EB60065FA44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0706846E1BE08EB60065FA44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		070684861BE08EB60065FA44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		070684911BE08EB60065FA44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		070684681BE08EB60065FA44 = {
+			isa = PBXGroup;
+			children = (
+				070684731BE08EB60065FA44 /* MicCheck */,
+				0706848C1BE08EB60065FA44 /* MicCheckTests */,
+				070684971BE08EB60065FA44 /* MicCheckUITests */,
+				070684721BE08EB60065FA44 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		070684721BE08EB60065FA44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				070684711BE08EB60065FA44 /* MicCheck.app */,
+				070684891BE08EB60065FA44 /* MicCheckTests.xctest */,
+				070684941BE08EB60065FA44 /* MicCheckUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		070684731BE08EB60065FA44 /* MicCheck */ = {
+			isa = PBXGroup;
+			children = (
+				070684741BE08EB60065FA44 /* AppDelegate.swift */,
+				070684761BE08EB60065FA44 /* RootViewController.swift */,
+				070684781BE08EB60065FA44 /* DataViewController.swift */,
+				0706847A1BE08EB60065FA44 /* ModelController.swift */,
+				0706847C1BE08EB60065FA44 /* Main.storyboard */,
+				0706847F1BE08EB60065FA44 /* Assets.xcassets */,
+				070684811BE08EB60065FA44 /* LaunchScreen.storyboard */,
+				070684841BE08EB60065FA44 /* Info.plist */,
+			);
+			path = MicCheck;
+			sourceTree = "<group>";
+		};
+		0706848C1BE08EB60065FA44 /* MicCheckTests */ = {
+			isa = PBXGroup;
+			children = (
+				0706848D1BE08EB60065FA44 /* MicCheckTests.swift */,
+				0706848F1BE08EB60065FA44 /* Info.plist */,
+			);
+			path = MicCheckTests;
+			sourceTree = "<group>";
+		};
+		070684971BE08EB60065FA44 /* MicCheckUITests */ = {
+			isa = PBXGroup;
+			children = (
+				070684981BE08EB60065FA44 /* MicCheckUITests.swift */,
+				0706849A1BE08EB60065FA44 /* Info.plist */,
+			);
+			path = MicCheckUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		070684701BE08EB60065FA44 /* MicCheck */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0706849D1BE08EB60065FA44 /* Build configuration list for PBXNativeTarget "MicCheck" */;
+			buildPhases = (
+				0706846D1BE08EB60065FA44 /* Sources */,
+				0706846E1BE08EB60065FA44 /* Frameworks */,
+				0706846F1BE08EB60065FA44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MicCheck;
+			productName = MicCheck;
+			productReference = 070684711BE08EB60065FA44 /* MicCheck.app */;
+			productType = "com.apple.product-type.application";
+		};
+		070684881BE08EB60065FA44 /* MicCheckTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 070684A01BE08EB60065FA44 /* Build configuration list for PBXNativeTarget "MicCheckTests" */;
+			buildPhases = (
+				070684851BE08EB60065FA44 /* Sources */,
+				070684861BE08EB60065FA44 /* Frameworks */,
+				070684871BE08EB60065FA44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0706848B1BE08EB60065FA44 /* PBXTargetDependency */,
+			);
+			name = MicCheckTests;
+			productName = MicCheckTests;
+			productReference = 070684891BE08EB60065FA44 /* MicCheckTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		070684931BE08EB60065FA44 /* MicCheckUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 070684A31BE08EB60065FA44 /* Build configuration list for PBXNativeTarget "MicCheckUITests" */;
+			buildPhases = (
+				070684901BE08EB60065FA44 /* Sources */,
+				070684911BE08EB60065FA44 /* Frameworks */,
+				070684921BE08EB60065FA44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				070684961BE08EB60065FA44 /* PBXTargetDependency */,
+			);
+			name = MicCheckUITests;
+			productName = MicCheckUITests;
+			productReference = 070684941BE08EB60065FA44 /* MicCheckUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		070684691BE08EB60065FA44 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Eric Nash Designs";
+				TargetAttributes = {
+					070684701BE08EB60065FA44 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					070684881BE08EB60065FA44 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 070684701BE08EB60065FA44;
+					};
+					070684931BE08EB60065FA44 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 070684701BE08EB60065FA44;
+					};
+				};
+			};
+			buildConfigurationList = 0706846C1BE08EB60065FA44 /* Build configuration list for PBXProject "MicCheck" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 070684681BE08EB60065FA44;
+			productRefGroup = 070684721BE08EB60065FA44 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				070684701BE08EB60065FA44 /* MicCheck */,
+				070684881BE08EB60065FA44 /* MicCheckTests */,
+				070684931BE08EB60065FA44 /* MicCheckUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0706846F1BE08EB60065FA44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				070684831BE08EB60065FA44 /* LaunchScreen.storyboard in Resources */,
+				070684801BE08EB60065FA44 /* Assets.xcassets in Resources */,
+				0706847E1BE08EB60065FA44 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		070684871BE08EB60065FA44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		070684921BE08EB60065FA44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0706846D1BE08EB60065FA44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				070684771BE08EB60065FA44 /* RootViewController.swift in Sources */,
+				0706847B1BE08EB60065FA44 /* ModelController.swift in Sources */,
+				070684791BE08EB60065FA44 /* DataViewController.swift in Sources */,
+				070684751BE08EB60065FA44 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		070684851BE08EB60065FA44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0706848E1BE08EB60065FA44 /* MicCheckTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		070684901BE08EB60065FA44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				070684991BE08EB60065FA44 /* MicCheckUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0706848B1BE08EB60065FA44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 070684701BE08EB60065FA44 /* MicCheck */;
+			targetProxy = 0706848A1BE08EB60065FA44 /* PBXContainerItemProxy */;
+		};
+		070684961BE08EB60065FA44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 070684701BE08EB60065FA44 /* MicCheck */;
+			targetProxy = 070684951BE08EB60065FA44 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0706847C1BE08EB60065FA44 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0706847D1BE08EB60065FA44 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		070684811BE08EB60065FA44 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				070684821BE08EB60065FA44 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0706849B1BE08EB60065FA44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0706849C1BE08EB60065FA44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0706849E1BE08EB60065FA44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MicCheck/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ericnashdesigns.com.MicCheck;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0706849F1BE08EB60065FA44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MicCheck/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ericnashdesigns.com.MicCheck;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		070684A11BE08EB60065FA44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MicCheckTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ericnashdesigns.com.MicCheckTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MicCheck.app/MicCheck";
+			};
+			name = Debug;
+		};
+		070684A21BE08EB60065FA44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MicCheckTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ericnashdesigns.com.MicCheckTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MicCheck.app/MicCheck";
+			};
+			name = Release;
+		};
+		070684A41BE08EB60065FA44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MicCheckUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ericnashdesigns.com.MicCheckUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MicCheck;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		070684A51BE08EB60065FA44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MicCheckUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ericnashdesigns.com.MicCheckUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MicCheck;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0706846C1BE08EB60065FA44 /* Build configuration list for PBXProject "MicCheck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0706849B1BE08EB60065FA44 /* Debug */,
+				0706849C1BE08EB60065FA44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0706849D1BE08EB60065FA44 /* Build configuration list for PBXNativeTarget "MicCheck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0706849E1BE08EB60065FA44 /* Debug */,
+				0706849F1BE08EB60065FA44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		070684A01BE08EB60065FA44 /* Build configuration list for PBXNativeTarget "MicCheckTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				070684A11BE08EB60065FA44 /* Debug */,
+				070684A21BE08EB60065FA44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		070684A31BE08EB60065FA44 /* Build configuration list for PBXNativeTarget "MicCheckUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				070684A41BE08EB60065FA44 /* Debug */,
+				070684A51BE08EB60065FA44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 070684691BE08EB60065FA44 /* Project object */;
+}
