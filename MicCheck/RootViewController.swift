@@ -12,16 +12,28 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate {
 
     var pageViewController: UIPageViewController?
 
+    // ERic: the index of the selected cell on the collectionViewController, which we'll use to fetch the proper viewController index
+    var eventIndex: AnyObject? {
+        get {
+            return NSUserDefaults.standardUserDefaults().objectForKey("eventIndex")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         // Configure the page view controller and add it as a child view controller.
-        self.pageViewController = UIPageViewController(transitionStyle: .PageCurl, navigationOrientation: .Horizontal, options: nil)
+
+        print("RootViewController.swift - viewDidLoad() - start")
+        
+        self.pageViewController = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Vertical, options: nil)
         self.pageViewController!.delegate = self
 
-        let startingViewController: DataViewController = self.modelController.viewControllerAtIndex(0, storyboard: self.storyboard!)!
+        print("RootViewController.swift - viewControllerAtIndex() called for startingViewController")
+        // ERic: swapped out the 0 for the monthIndex as an Int
+        let startingViewController: DataViewController = self.modelController.viewControllerAtIndex(eventIndex as! Int, direction: "down", storyboard: self.storyboard!)!
         let viewControllers = [startingViewController]
+        print("RootViewController.swift - setViewControllers() - called")
         self.pageViewController!.setViewControllers(viewControllers, direction: .Forward, animated: false, completion: {done in })
 
         self.pageViewController!.dataSource = self.modelController
@@ -40,6 +52,19 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate {
 
         // Add the page view controller's gesture recognizers to the book view controller's view so that the gestures are started more easily.
         self.view.gestureRecognizers = self.pageViewController!.gestureRecognizers
+
+        // ERic: hide the navigation bar but keep the back gesture
+//        self.navigationController?.navigationBarHidden = true
+//        if (((self.navigationController?.respondsToSelector(Selector("interactivePopGestureRecognizer")))) != nil) {
+//            self.navigationController?.interactivePopGestureRecognizer?.enabled = true
+//            self.navigationController?.interactivePopGestureRecognizer!.delegate = self as? UIGestureRecognizerDelegate
+//        }
+
+        // RootViewController.swift - viewDidLoad() - this is a hack that puts the view under the navigationController
+        self.pageViewController!.view.insertSubview(UIView(), atIndex: 0)
+        
+        print("RootViewController.swift - viewDidLoad() - end")
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,6 +91,7 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate {
             let currentViewController = self.pageViewController!.viewControllers![0]
             let viewControllers = [currentViewController]
             self.pageViewController!.setViewControllers(viewControllers, direction: .Forward, animated: true, completion: {done in })
+            print("RootViewController.swift - spineLocationForInterfaceOrientation()")
 
             self.pageViewController!.doubleSided = false
             return .Min
@@ -87,7 +113,12 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate {
 
         return .Mid
     }
+    
+    // hide the wifi connection, clock, and battery level
 
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 
 }
 

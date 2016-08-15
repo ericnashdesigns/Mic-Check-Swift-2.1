@@ -8,6 +8,18 @@
 
 import UIKit
 
+
 class CollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet var imgArtistView: UIImageView!
+    @IBOutlet var labelArtist: UILabel!
+    @IBOutlet var labelVenue: UILabel!
+
+    
+    override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.applyLayoutAttributes(layoutAttributes)
+
+    }
+    
 }
+
