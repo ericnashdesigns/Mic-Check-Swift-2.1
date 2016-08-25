@@ -151,7 +151,7 @@
                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sq8-zP-HWW" userLabel="Month Label">
-                                            <rect key="frame" x="5" y="83" width="29" height="17"/>
+                                            <rect key="frame" x="9" y="88" width="29" height="17"/>
                                             <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="12"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -181,7 +181,7 @@
                                         <constraint firstAttribute="bottom" secondItem="xiu-Bh-i02" secondAttribute="bottom" constant="1" id="ITC-BA-ksP"/>
                                         <constraint firstItem="KbK-jR-xd2" firstAttribute="top" secondItem="WwJ-Pg-uCx" secondAttribute="bottom" constant="-30" id="JWJ-Fi-MwS"/>
                                         <constraint firstItem="0ED-Oe-epK" firstAttribute="centerY" secondItem="L02-lG-uGB" secondAttribute="centerY" id="Kky-yQ-NLL"/>
-                                        <constraint firstItem="Sq8-zP-HWW" firstAttribute="centerY" secondItem="KbK-jR-xd2" secondAttribute="centerY" constant="13" id="RCS-uD-Uga"/>
+                                        <constraint firstItem="Sq8-zP-HWW" firstAttribute="centerY" secondItem="KbK-jR-xd2" secondAttribute="centerY" constant="18" id="RCS-uD-Uga"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="0ED-Oe-epK" secondAttribute="trailing" constant="48" id="Roq-Kn-8IS"/>
                                         <constraint firstAttribute="trailing" secondItem="xiu-Bh-i02" secondAttribute="trailing" id="Tor-pR-JGF"/>
                                         <constraint firstAttribute="bottom" secondItem="jCq-0m-Nua" secondAttribute="bottom" id="Tw2-Zv-mcN"/>
@@ -192,7 +192,7 @@
                                         <constraint firstItem="jCq-0m-Nua" firstAttribute="leading" secondItem="fqg-mv-uJe" secondAttribute="trailing" constant="12" id="blo-lz-u8M"/>
                                         <constraint firstItem="WwJ-Pg-uCx" firstAttribute="top" secondItem="L02-lG-uGB" secondAttribute="topMargin" constant="21" id="e7y-7f-ciG"/>
                                         <constraint firstItem="fqg-mv-uJe" firstAttribute="top" secondItem="L02-lG-uGB" secondAttribute="top" id="fGu-eS-18O"/>
-                                        <constraint firstItem="KbK-jR-xd2" firstAttribute="leading" secondItem="Sq8-zP-HWW" secondAttribute="trailing" constant="-2" id="gsA-0z-bCD"/>
+                                        <constraint firstItem="KbK-jR-xd2" firstAttribute="leading" secondItem="Sq8-zP-HWW" secondAttribute="trailing" constant="-6" id="gsA-0z-bCD"/>
                                         <constraint firstItem="u7d-lY-man" firstAttribute="leading" secondItem="0ED-Oe-epK" secondAttribute="leading" id="i0k-hX-rQ0"/>
                                         <constraint firstItem="jCq-0m-Nua" firstAttribute="top" secondItem="L02-lG-uGB" secondAttribute="top" id="lrh-Th-PAY"/>
                                         <constraint firstItem="xiu-Bh-i02" firstAttribute="leading" secondItem="L02-lG-uGB" secondAttribute="leading" id="qJv-yv-ZBl"/>
