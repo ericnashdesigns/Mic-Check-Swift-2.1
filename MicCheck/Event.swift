@@ -121,6 +121,8 @@ class LineUp {
                 venueHTMLString = try String(contentsOfURL: venueURL!, encoding: NSUTF8StringEncoding)
             } catch {
                 venueHTMLString = nil
+                print(" Event.swift - \(venueURLString!) URL is not returning anything.  Going to next event.")
+                continue eventLoop
             }
             
             if let doc = Kanna.HTML(html: venueHTMLString!, encoding: NSUTF8StringEncoding) {
