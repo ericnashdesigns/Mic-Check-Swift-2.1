@@ -20,13 +20,14 @@ class LineUp {
 
     private init() {
         self.loadVenuesFromJSON()
-        
-
     }
     
+
     func loadVenuesFromJSON() {
 
-        // MARK: Create Array of Event objects from events.json
+        // MARK: Create Array of Event objects from events.json and load in test data
+        // print(" Event.swift - loadVenuesFromJSON() - start")
+        // print(" = = = = = = = = = = = =")
         
         if let path = NSBundle.mainBundle().pathForResource("events", ofType: "json") {
             if let data = NSData(contentsOfFile: path) {
@@ -34,84 +35,52 @@ class LineUp {
                 
                 if let lineup = json["events"].array {
                     
-//                    print(" Event.swift - loadVenuesFromJSON() - start")
-//                    print(" = = = = = = = = = = = =")
-                    
-                    
                     eventLoop: for currentEvent in lineup {
+                        //print(" Event.swift - populating currentEvent in lineup")
                         
                         let eventDictionary: NSDictionary = currentEvent.object as! NSDictionary
                         
                         let event = Event(Dictionary: eventDictionary)
-//                        print(" \(event.venue!)")
-                        //                        print(event.urlEvent)
-
                         event.eventHappeningTonight = true
-                        
-                        
-                            //                            print(" Event.swift - populating currentEvent in lineup")
-
                         event.urlEvent = event.testUrlEvent!
                         event.artist = event.testArtist!
-//                        print(" \(event.artist)")
                         event.imgArtist = UIImage(named: event.testImgArtist!)
                         event.price = event.testPrice!
-                        
-                        print(" \(event.price!)")
-                        print(" \(event.urlEvent)")
-                        //event.getVideosForArtist()
-                        
-//                        print("   Event.swift - right after getVideosForArtist the \(event.artist) count is still \(event.vIDItems.count)")
-                        //                            let videoDetails = event.vIDItems[currentEvent.int!]
-                        //                            viewVideoTopLeft.image = UIImage(data: NSData(contentsOfURL: NSURL(string: (videoDetails["thumbnail"] as? String)!)!)!)
-                        print(" = = = = = = = =")
-                            
 
-                        
-//                        print(" \(event.price!)")
-//                        print(" \(event.urlEvent)")
-                        //event.getVideosForArtist()
-                        
-                        //print(" Event.swift - right after getVideosForArtist the \(event.artist) count is still \(event.vIDItems.count)")
-                        //                            let videoDetails = event.vIDItems[currentEvent.int!]
-                        //                            viewVideoTopLeft.image = UIImage(data: NSData(contentsOfURL: NSURL(string: (videoDetails["thumbnail"] as? String)!)!)!)
-//                        print(" = = = = = = = =")
+                        //print(" = = = = = = = =")
+                        //print(event.urlEvent)
+                        //print(event.artist)
+                        //print(event.price)
+
                         events.append(event)
                         
                     }
                     
                 } else {
-                    print(" could not create lineup array from data")
+                    print(" Events.swift – could not create lineup array from data")
                 }
                 
             } else {
-                print(" could not create data from path")
+                print(" Events.swift – could not create data from path")
             }
         } else {
-            print(" could not create path")
+            print(" Events.swift – could not create path")
         }
 
-//        print(" Event.swift - loadVenuesFromJSON() - end")
+        print("\r\n Event.swift - loadVenuesFromJSON() - completed")
     }
-
-    func checkVenueForEventToday() {
-        // use the Venue URL in the JSON File to access the venue website and populate other areas
-    }
-    
     
 
     func filterTodaysEvents() {
 
-        print(" = = = = = = = = = = = =\r\n")
+        // MARK: Remove items from the Array of Event objects if the event date on the website isn't today
+        print("\r\n Event.swift - filterTodaysEvents() - start")
         
-        print(" Event.swift - filterTodaysEvents() - start")
-
-        
-        // ERic: since I'm removing items, the idea is to go in reverse so that indexes won't shift
+        // ERic: since I'm removing items, go in reverse so that array indexes won't shift
         eventLoop: for (index, currentEvent) in self.events.enumerate().reverse() {
 
+            print("\r\n - - - - - - - - - - - -")
             print(" \(currentEvent.venue!)")
-            print(" \(currentEvent.artist)")
             
             // use the Venue URL in the JSON File to access the venue website and populate other areas
             let venueURLString = currentEvent.urlVenue
@@ -121,19 +90,13 @@ class LineUp {
                 venueHTMLString = try String(contentsOfURL: venueURL!, encoding: NSUTF8StringEncoding)
             } catch {
                 venueHTMLString = nil
-                print(" Event.swift - \(venueURLString!) URL is not returning anything.  Going to next event.")
+                print(" \(venueURLString!) URL is not returning anything.  Going to next event.")
                 continue eventLoop
             }
             
             if let doc = Kanna.HTML(html: venueHTMLString!, encoding: NSUTF8StringEncoding) {
-                // println(doc.title)
                 
-                //                                dispatch_async(dispatch_get_main_queue(), {
-                //                                    print(" Event.swift - Kanna is finished parsing the venue website: \(event.urlVenue!)")
-                //                                    return
-                //                                })
-                
-                // Add Date to the Event, determine if the event is today, and if so, add it to events array
+                // Check the date of the venue's event, if happening today add it to events array, otherwise
                 var nodes = doc.xpath(currentEvent.xPathDate!)
                 if (nodes.count > 0) { // make sure there is an image
                     for node in nodes {
@@ -143,8 +106,7 @@ class LineUp {
                         // pull out the components from the string and make them a parsed date
                         var trimmedStrEventDate = node.text!.stringByReplacingOccurrencesOfString("\r\n", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                         trimmedStrEventDate = trimmedStrEventDate.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-                        
-                        print(" Event.swift - Trim Date : \(trimmedStrEventDate)")
+                        //print(" Event.swift - Trim Date : \(trimmedStrEventDate)")
                         
                         let eventDateFormatter = NSDateFormatter()
                         eventDateFormatter.dateFormat = currentEvent.dateFormat
@@ -162,7 +124,7 @@ class LineUp {
                         
                         // reset the parsed date to the same date but with the correct calendar components
                         parsedDate = calendar.dateFromComponents(parsedDateComponents) as NSDate!
-                        print(" Event.swift - Event Date: \(eventDateFormatter.stringFromDate(parsedDate))")
+                        //print(" Event.swift - Event Date: \(eventDateFormatter.stringFromDate(parsedDate))")
                         
                         // if the event date doesn't match up with todays date, just loop to the next event
                         let order = NSCalendar.currentCalendar().compareDate(todayDate, toDate: parsedDate,
@@ -170,214 +132,199 @@ class LineUp {
                         switch order {
                         case .OrderedDescending:
                             currentEvent.eventHappeningTonight = false
-                            print(" Event.swift - Event already happened, so drop from array")
-                            print(" - - - - - - - -")
+                            print(" Last Event: \(eventDateFormatter.stringFromDate(parsedDate))")
                         case .OrderedAscending:
                             currentEvent.eventHappeningTonight = false
-                            print(" Event.swift - Event will happen on a later day, so drop from array")
-                            print(" - - - - - - - -")
+                            print(" Future Event: \(eventDateFormatter.stringFromDate(parsedDate))")
                         case .OrderedSame:
                             currentEvent.eventHappeningTonight = true
-                            print(" Event.swift - Event happening today. Get event details then add")
+                            print(" Event Today: \(eventDateFormatter.stringFromDate(parsedDate))")
                         }
                         
+                        // remove the array items that aren't happening tonight
+                        if (currentEvent.eventHappeningTonight == false) {
+                            //print(" Event.swift - event not happening so removing \(index)")
+                            self.events.removeAtIndex(index)
+                            continue eventLoop
+                        }
                         
                     }
                 } else {
-                    currentEvent.artist = "Date Not Available"
-                    print(" Could not fetch Date")
+                    //currentEvent.artist = "Artist Unknown"
+                    print(" Event.swift – xPath could not select date for this event, removing it and skipping to next event")
+                    self.events.removeAtIndex(index)
+                    continue eventLoop
+                }
+
+                    
+                // Event is happening today, so populate from website
+
+                // Add Artist Name to the Event
+                nodes = doc.xpath(currentEvent.xPathArtist!)
+                if (nodes.count > 0) { // make sure there was an artist
+                    for node in nodes {
+                        // remove whitespace characters
+                        var trimmedString = node.text!.stringByReplacingOccurrencesOfString("\r\n", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                        trimmedString = trimmedString.stringByReplacingOccurrencesOfString("\n", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                        currentEvent.artist = trimmedString
+                        print("\r\n \(trimmedString)")
+                    }
+                } else {
+                    currentEvent.artist = "Artist Not Available"
+                    print(" Could not fetch Artist")
                 }
                 
-                print(" - - - - - - - - ")
-                print(" Event.swift - currentEvent.eventHappeningTonight = \(currentEvent.eventHappeningTonight)")
-
-                // remove the items that aren't happening tonight
-                if (currentEvent.eventHappeningTonight == false) {
-                    print(" Event.swift - event not happening so removing \(index)")
-                    self.events.removeAtIndex(index)
-
-                } else {  // event is happening, so populate with live stuff
-
-                    // Add Artist Name to the Event
-                    nodes = doc.xpath(currentEvent.xPathArtist!)
-                    if (nodes.count > 0) { // make sure there was an artist
-                        for node in nodes {
-                            // remove whitespace characters
-                            var trimmedString = node.text!.stringByReplacingOccurrencesOfString("\r\n", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-                            trimmedString = trimmedString.stringByReplacingOccurrencesOfString("\n", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-                            //                        println(node.text! + " != " + trimmedString)
-                            print(" \(trimmedString)")
-                            //event.artist = trimmedString.uppercaseString
-                            currentEvent.artist = trimmedString
-                        }
-                    } else {
-                        currentEvent.artist = "Artist Not Available"
-                        print(" Could not fetch Artist")
-                    }
-                    
-                    
-                    
-                    // Add URL for Event to the Event
-                    nodes = doc.xpath(currentEvent.xPathUrlEvent!)
-                    if (nodes.count > 0) { // make sure there was an event url
-                        for node in nodes {
+                
+                
+                // Add URL for Event to the Event
+                nodes = doc.xpath(currentEvent.xPathUrlEvent!)
+                if (nodes.count > 0) { // make sure there was an event url
+                    for node in nodes {
+                        
+                        let event_url = NSURL(string: node.text!)
+                        var event_url_string = event_url?.absoluteString
+                        let event_data = NSData(contentsOfURL: event_url!)
+                        
+                        // if URL is fine as is, then go ahead and set it in the event
+                        if ((event_data) != nil) {
                             
-                            let event_url = NSURL(string: node.text!)
-                            var event_url_string = event_url?.absoluteString
-                            let event_data = NSData(contentsOfURL: event_url!)
+                            currentEvent.urlEvent = node.text!
                             
-                            // if URL is fine as is, then go ahead and set it in the event
-                            if ((event_data) != nil) {
+                        } else {
+                            
+                            // add protocol prefix if there double slash has been provided
+                            if (event_url_string!.rangeOfString("//") != nil) {
                                 
-                                currentEvent.urlEvent = node.text!
+                                event_url_string = "http:" + event_url_string!
+                                currentEvent.urlEvent = event_url_string!
                                 
+                                // double slash not provided, so it's relative path and venue website prefix should be added
                             } else {
                                 
-                                // add protocol prefix if there double slash has been provided
-                                if (event_url_string!.rangeOfString("//") != nil) {
-                                    
-                                    event_url_string = "http:" + event_url_string!
-                                    currentEvent.urlEvent = event_url_string!
-                                    
-                                    // double slash not provided, so it's relative path and venue website prefix should be added
-                                } else {
-                                    
-                                    currentEvent.urlEvent = currentEvent.urlVenue! + event_url_string!
-                                    
-                                }
-                                
-                                // if it still doesn't work then default to event not available
-                                if let _ = NSURL(string: currentEvent.urlEvent) {
-                                    
-                                } else {
-                                    currentEvent.urlEvent = "http://www.google.com/#q=" + currentEvent.artist
-                                    print(" Could not fetch Event Detail Page")
-                                }
+                                currentEvent.urlEvent = currentEvent.urlVenue! + event_url_string!
                                 
                             }
                             
-                            print(" \(currentEvent.urlEvent)")
+                            // if it still doesn't work then default to event not available
+                            if let _ = NSURL(string: currentEvent.urlEvent) {
+                                
+                            } else {
+                                currentEvent.urlEvent = "http://www.google.com/#q=" + currentEvent.artist
+                                print(" Could not fetch Event Detail Page")
+                            }
                             
                         }
-                    } else {
-                        currentEvent.urlEvent = "http://www.google.com/#q=" + currentEvent.artist
-                        print(" Could not fetch Event Detail Page")
+                        
+                        print(" \(currentEvent.urlEvent)")
+                        
                     }
-                    
-                    
-                    
-                    // Add Artist Image to the Event
-                    nodes = doc.xpath(currentEvent.xPathImgArtist!)
-                    if (nodes.count > 0) { // make sure there is an image
-                        for node in nodes {
-                            //print(node.text!)
+                } else {
+                    currentEvent.urlEvent = "http://www.google.com/#q=" + currentEvent.artist
+                    print(" Could not fetch Event Detail Page")
+                }
+                
+                
+                
+                // Add Artist Image to the Event
+                nodes = doc.xpath(currentEvent.xPathImgArtist!)
+                if (nodes.count > 0) { // make sure there is an image
+                    for node in nodes {
+                        //print(node.text!)
+                        
+                        
+                        var image_url = NSURL(string: node.text!)
+                        var image_url_string = image_url?.absoluteString
+                        var image_data = NSData(contentsOfURL: image_url!)
+                        if ((image_data) != nil) {
+                            let image = UIImage(data: image_data!)
+                            currentEvent.imgArtist = image!
+                        } else  {
+                            
+                            // add protocol prefix if there double slash has been provided
+                            if (image_url_string!.rangeOfString("//") != nil) {
+                                image_url_string = "http:" + image_url_string!
+                                image_url = NSURL(string: image_url_string!)
+                                image_data = NSData(contentsOfURL: image_url!)
+                                
+                                // double slash not provided, so it's relative path and venue website prefix should be added
+                            } else {
+                                
+                                let image_url_string_full = currentEvent.urlVenue
+                                let part_to_clip = image_url_string_full!.rangeOfString("/", options: .BackwardsSearch)?.startIndex
+                                let image_url_string_remainder = image_url_string_full!.substringToIndex(part_to_clip!)
+                                
+                                image_url_string = image_url_string_remainder + "/" + image_url_string!
+                                image_url = NSURL(string: image_url_string!)
+                                image_data = NSData(contentsOfURL: image_url!)
+                            }
                             
                             
-                            var image_url = NSURL(string: node.text!)
-                            var image_url_string = image_url?.absoluteString
-                            var image_data = NSData(contentsOfURL: image_url!)
+                            // get larger version of image if a small one has been provided
+                            if (image_url_string!.rangeOfString("atsm.") != nil) {
+                                image_url_string = image_url_string!.stringByReplacingOccurrencesOfString("atsm.", withString: "atlg.", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                                image_url = NSURL(string: image_url_string!)
+                                image_data = NSData(contentsOfURL: image_url!)
+                            }
+                            
+                            // if event URL is facebook, then go scrape that page for the better image
+                            if currentEvent.urlEvent.rangeOfString("facebook.com") != nil {
+                                
+                                print(" there is a facebook pic for \(currentEvent.urlEvent)")
+                                
+                                
+                            }
+                            
                             if ((image_data) != nil) {
                                 let image = UIImage(data: image_data!)
                                 currentEvent.imgArtist = image!
-                            } else  {
-                                
-                                // add protocol prefix if there double slash has been provided
-                                if (image_url_string!.rangeOfString("//") != nil) {
-                                    image_url_string = "http:" + image_url_string!
-                                    image_url = NSURL(string: image_url_string!)
-                                    image_data = NSData(contentsOfURL: image_url!)
-                                    
-                                    // double slash not provided, so it's relative path and venue website prefix should be added
-                                } else {
-                                    
-                                    let image_url_string_full = currentEvent.urlVenue
-                                    let part_to_clip = image_url_string_full!.rangeOfString("/", options: .BackwardsSearch)?.startIndex
-                                    let image_url_string_remainder = image_url_string_full!.substringToIndex(part_to_clip!)
-                                    
-                                    image_url_string = image_url_string_remainder + "/" + image_url_string!
-                                    image_url = NSURL(string: image_url_string!)
-                                    image_data = NSData(contentsOfURL: image_url!)
-                                }
-                                
-                                
-                                // get larger version of image if a small one has been provided
-                                if (image_url_string!.rangeOfString("atsm.") != nil) {
-                                    image_url_string = image_url_string!.stringByReplacingOccurrencesOfString("atsm.", withString: "atlg.", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                                    image_url = NSURL(string: image_url_string!)
-                                    image_data = NSData(contentsOfURL: image_url!)
-                                }
-                                
-                                
-                                // if event URL is facebook, then go scrape that page for the better image
-                                if currentEvent.urlEvent.rangeOfString("facebook.com") != nil {
-                                    
-                                    print(" there is a facebook pic for \(currentEvent.urlEvent)")
-                                    
-                                    
-                                }
-                                
-                                if ((image_data) != nil) {
-                                    let image = UIImage(data: image_data!)
-                                    currentEvent.imgArtist = image!
-                                } else {
-                                    // if it still doesn't work then default to image not available
-                                    currentEvent.imgArtist = UIImage(named: "image.not.available")!
-                                }
-                                
+                            } else {
+                                // if it still doesn't work then default to image not available
+                                currentEvent.imgArtist = UIImage(named: "image.not.available")!
                             }
                             
-                            print(" \(image_url_string!)")
-                            //print("the image is \(event.imgArtist?.size.width) x \(event.imgArtist?.size.height)")
-                            
                         }
-                    } else {
-                        currentEvent.imgArtist = UIImage(named: "image.not.available")!
-                        print(" Could not fetch Artist Image")
+                        
+                        print(" \(image_url_string!)")
+                        //print("the image is \(event.imgArtist?.size.width) x \(event.imgArtist?.size.height)")
+                        
                     }
+                } else {
+                    currentEvent.imgArtist = UIImage(named: "image.not.available")!
+                    print(" Could not fetch Artist Image")
+                }
+                
+                
+                
+                // Add Price to the Event
+                if (currentEvent.boolPriceShown == "true") {
+                    nodes = doc.xpath(currentEvent.xPathPrice!)
                     
-                    
-                    
-                    // Add Price to the Event
-                    if (currentEvent.boolPriceShown == "true") {
-                        nodes = doc.xpath(currentEvent.xPathPrice!)
-                        
-                        if (nodes.count > 0) { // make sure there is an image
-                            for node in nodes {
-                                // remove whitespace characters
-                                var trimmedString = node.text!.stringByReplacingOccurrencesOfString("\n", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-                                trimmedString = trimmedString.stringByReplacingOccurrencesOfString("Tickets ", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                                
-                                trimmedString = trimmedString.stringByReplacingOccurrencesOfString(".00", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                                
-                                if trimmedString.rangeOfString("$") == nil{
-                                    //trimmedString = "Price Not Given"
-                                }
-                                
-                                print(" \(trimmedString)")
-                                currentEvent.price = trimmedString
+                    if (nodes.count > 0) { // make sure there is an image
+                        for node in nodes {
+                            // remove whitespace characters
+                            var trimmedString = node.text!.stringByReplacingOccurrencesOfString("\n", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                            trimmedString = trimmedString.stringByReplacingOccurrencesOfString("Tickets ", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                            
+                            trimmedString = trimmedString.stringByReplacingOccurrencesOfString(".00", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                            
+                            if trimmedString.rangeOfString("$") == nil{
+                                //trimmedString = "Price Not Given"
                             }
-                        } else {
-                            currentEvent.price = ""
-                            print(" Could not fetch Price")
+                            
+                            currentEvent.price = trimmedString
+                            print(" \(trimmedString)")
                         }
-                        
                     } else {
                         currentEvent.price = ""
-                        print(" Price not shown on this site")
+                        print(" Event.swift – Could not fetch Price")
                     }
                     
-                    
-                    
-                    
-                    // Add Videos for Artist
-                    //event.getVideosForArtist()
-                    
-                    
-
-                    
-                    
+                } else {
+                    currentEvent.price = ""
+                    print(" Event.swift – Price not shown on this site")
                 }
-                print(" - - - - - - - - ")
+                
+                
                 
             }
             
