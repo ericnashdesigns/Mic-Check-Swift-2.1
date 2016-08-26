@@ -282,6 +282,12 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
                         }
                     }
 
+                    // when there's no events today, a single blank event gets added to the events array
+                    // with the venue set to "noVenuesToday"
+                    if dataSource?.lineUp.events[0].venue == "noVenuesToday" {
+                        headerView.labelVenueList.text = "No Shows,\r\nThat Blows..."
+                    }
+
                     
                     headerView.labelShowCount.text =  "\(venueCount)"
                     UIView.animateWithDuration(0.5, animations: {
@@ -333,7 +339,11 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
             cell.alpha = 0
 
             cell.labelArtist.text = self.dataSource?.lineUp.events[indexPath.row].artist
-            cell.labelVenue.text = "@" + (self.dataSource?.lineUp.events[indexPath.row].venue)!
+            if (self.dataSource?.lineUp.events[indexPath.row].venue != "noVenuesToday") {
+                cell.labelVenue.text = "@" + (self.dataSource?.lineUp.events[indexPath.row].venue)!
+            } else {
+                cell.labelVenue.text = ""
+            }
             cell.imgArtistView.image = self.dataSource?.lineUp.events[indexPath.row].imgArtist
 
             cell.imgArtistView.layer.masksToBounds = true
