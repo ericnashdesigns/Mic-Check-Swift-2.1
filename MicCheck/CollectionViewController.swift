@@ -13,6 +13,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     var dataSource: ModelController?
     var eventsLoaded: Bool = false // ERic: keeps track of when everything is loaded
 
+    let cellSpacingsInStoryboard: CGFloat = 2 * 2 // spacing * 2 edges
+    
     @IBOutlet var collectionView: UICollectionView!  // ERic: I needed this to reference collectionView in willRotateToInterfaceOrientation
     @IBOutlet var kenBurnsView: JBKenBurnsView!
     @IBOutlet var imgTriangulateAppIcon: UIImageView!
@@ -174,8 +176,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         
         print("CollectionViewController.swift - viewDidLoad() - end")
         
-
-        
     }
 
     func maskImage(cell:CollectionViewCell, image:UIImage, mask:(UIImage))->UIImage{
@@ -324,7 +324,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
 
         if (!eventsLoaded) {
             
-            print(" CollectionViewController.swift - cellForItemAtIndexPath - events not yet loaded")
+            //print(" CollectionViewController.swift - cellForItemAtIndexPath - events not yet loaded")
         
             cell.labelArtist.text = ""
             cell.labelVenue.text = ""
@@ -332,9 +332,9 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         
         } else {
             
-            print(" CollectionViewController.swift - cellForItemAtIndexPath - events loaded")
+            //print(" CollectionViewController.swift - cellForItemAtIndexPath - events loaded")
             
-//            UIView.animateWithDuration(0.5, animations: { cell.layer.opacity = 0 })
+            //UIView.animateWithDuration(0.5, animations: { cell.layer.opacity = 0 })
             //cell.layer.opacity = 0
             cell.alpha = 0
 
@@ -375,14 +375,29 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         let orientation = UIApplication.sharedApplication().statusBarOrientation
         
         if(orientation == .LandscapeLeft || orientation == .LandscapeRight) {
-            // 2 rows of 1
-            return CGSizeMake((collectionView.frame.size.width), (collectionView.frame.size.height)/2-2)
+            // 1 header row of 1
+            return CGSizeMake((collectionView.frame.size.width - cellSpacingsInStoryboard), (collectionView.frame.size.height)/2 - cellSpacingsInStoryboard)
         }
         else { // portrait mode
-            // 1 row of 3
-            return CGSizeMake((collectionView.frame.size.width), (collectionView.frame.size.height)/3-2)
+            // 1 header row of 1
+            return CGSizeMake((collectionView.frame.size.width - cellSpacingsInStoryboard), (collectionView.frame.size.height)/3 - cellSpacingsInStoryboard)
         }
 
+    }
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        let orientation = UIApplication.sharedApplication().statusBarOrientation
+        
+        if(orientation == .LandscapeLeft || orientation == .LandscapeRight) {
+            // 2 rows of 3
+            return CGSizeMake((collectionView.frame.size.width)/3 - cellSpacingsInStoryboard, (collectionView.frame.size.height)/2 - cellSpacingsInStoryboard)
+        }
+        else { // portrait mode
+            // 3 rows of 1
+            return CGSizeMake((collectionView.frame.size.width - cellSpacingsInStoryboard), (collectionView.frame.size.height)/3 - cellSpacingsInStoryboard)
+        }
+        
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
@@ -390,36 +405,12 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         let orientation = UIApplication.sharedApplication().statusBarOrientation
         
         if(orientation == .LandscapeLeft || orientation == .LandscapeRight) {
-            // 2 rows of 1
-            return CGSizeMake((collectionView.frame.size.width), (collectionView.frame.size.height)/2-2)
+            // 1 footer row of 1
+            return CGSizeMake((collectionView.frame.size.width - cellSpacingsInStoryboard), (collectionView.frame.size.height)/2 - cellSpacingsInStoryboard)
         }
         else { // portrait mode
-            // 1 row of 3
-            return CGSizeMake((collectionView.frame.size.width), (collectionView.frame.size.height)/3-2)
-        }
-
-        
-    }
-    
- 
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        let orientation = UIApplication.sharedApplication().statusBarOrientation
-        
-        if(orientation == .LandscapeLeft || orientation == .LandscapeRight) {
-            // 2 rows of 3
-            return CGSizeMake((collectionView.frame.size.width)/3, (collectionView.frame.size.height)/2)
-        }
-        else { // portrait mode
-            // 3 rows of 1
-            
-//            if indexPath.row > 0 {
-                return CGSizeMake((collectionView.frame.size.width), (collectionView.frame.size.height)/3)
-            //} //else { // special case the first row to fill the width
-                //return CGSizeMake(collectionView.frame.size.width - 16, CGFloat(collectionView.frame.size.height)/3 - 4)
-            //}
-                //return CGSizeMake(collectionView.frame.size.width - 8, CGFloat(collectionView.frame.size.height)/3 - 4)
-         
+            // 1 footer row of 1
+            return CGSizeMake((collectionView.frame.size.width - cellSpacingsInStoryboard), (collectionView.frame.size.height)/3 - cellSpacingsInStoryboard)
         }
         
     }

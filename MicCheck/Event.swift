@@ -76,7 +76,7 @@ class LineUp {
         // MARK: Remove items from the Array of Event objects if the event date on the website isn't today
         print("\r\n Event.swift - filterTodaysEvents() - start")
         
-        // ERic: since I'm removing items, go in reverse so that array indexes won't shift
+        // Since I'm removing items from the array, go in reverse so that indexes won't shift
         eventLoop: for (index, currentEvent) in self.events.enumerate().reverse() {
 
             print("\r\n - - - - - - - - - - - -")
@@ -93,6 +93,12 @@ class LineUp {
                 print(" \(venueURLString!) URL is not returning anything.  Going to next event.")
                 continue eventLoop
             }
+
+//
+//            guard let venueHTMLString = try String(contentsOfURL: venueURL!, encoding: NSUTF8StringEncoding) else {
+//                print(" \(venueURLString!) URL is not returning anything.  Going to next event.")
+//                continue eventLoop
+//            }
             
             if let doc = Kanna.HTML(html: venueHTMLString!, encoding: NSUTF8StringEncoding) {
                 
@@ -100,8 +106,6 @@ class LineUp {
                 var nodes = doc.xpath(currentEvent.xPathDate!)
                 if (nodes.count > 0) { // make sure there is an image
                     for node in nodes {
-                        
-                        //print(" Event.swift - original node text = \(node.text!)")
                         
                         // pull out the components from the string and make them a parsed date
                         var trimmedStrEventDate = node.text!.stringByReplacingOccurrencesOfString("\r\n", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -481,11 +485,8 @@ class Event {
             //self.viewWait.hidden = true
 
         })
-
-
     
-        print("   Event.swift - getVideosForArtst - performGetRequest end for \(self.artist)")
-        print("   Event.swift - getVideosForArtist end")
+        print("   Event.swift - getVideosForArtst - end for \(self.artist)")
         
     }
     
