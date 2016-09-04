@@ -66,17 +66,13 @@
                             <constraint firstItem="9ee-A7-Bc5" firstAttribute="top" secondItem="XM5-hb-TBE" secondAttribute="bottom" constant="-14" id="09o-sD-7q5"/>
                             <constraint firstItem="XM5-hb-TBE" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="150" id="86d-T1-dRl"/>
                             <constraint firstAttribute="trailing" secondItem="A3g-AQ-6mJ" secondAttribute="trailing" id="JoR-18-LeA"/>
-                            <constraint firstItem="9ee-A7-Bc5" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Lx6-2Y-Ieg"/>
                             <constraint firstItem="XM5-hb-TBE" firstAttribute="bottom" secondItem="k3k-vV-J64" secondAttribute="top" constant="1" id="V0B-CV-Ldv"/>
                             <constraint firstItem="XM5-hb-TBE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="XiH-5c-iCJ"/>
-                            <constraint firstItem="9ee-A7-Bc5" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="aQy-Um-WNe"/>
                             <constraint firstItem="A3g-AQ-6mJ" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="hED-Rv-6xt"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="A3g-AQ-6mJ" secondAttribute="bottom" id="pPk-iE-4Ed"/>
                             <constraint firstItem="k3k-vV-J64" firstAttribute="centerX" secondItem="XM5-hb-TBE" secondAttribute="centerX" id="sHC-FW-gWD"/>
                             <constraint firstItem="A3g-AQ-6mJ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="uHG-kW-zej"/>
-                            <constraint firstItem="9ee-A7-Bc5" firstAttribute="bottom" secondItem="cho-S1-lV0" secondAttribute="top" id="vyd-RB-SuE"/>
                             <constraint firstItem="k3k-vV-J64" firstAttribute="centerX" secondItem="XM5-hb-TBE" secondAttribute="centerX" id="xix-J8-Dwf"/>
-                            <constraint firstItem="cho-S1-lV0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zDb-6z-xtk"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
