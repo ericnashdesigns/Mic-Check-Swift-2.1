@@ -438,7 +438,7 @@ class Event {
         // Create an NSURL Object using the string above
         let targetURL = NSURL(string: urlString)
         
-        print("   Event.swift - getVideosForArtst - performGetRequest start for \(self.artist)")
+        //print("   Event.swift - getVideosForArtst - performGetRequest start for \(self.artist)")
         performGetRequest(targetURL, completion: { (data, HTTPStatusCode, error) -> Void in
             if HTTPStatusCode == 200 && error == nil {  // ensure there’s JSON data by checking HTTP code and error object
                 
@@ -462,10 +462,10 @@ class Event {
                             //tempVIDItems.append(videoDetailsDict)
                             //print("\(self.artist) \(videoDetailsDict["thumbnail"])")
                             self.vIDItems.append(videoDetailsDict)
-                            print("   Event.swift - getVideosForArtist() – the videoID for \(self.artist) is \(self.vIDItems[i]["videoID"]!)")
+                            //print("   Event.swift - getVideosForArtist() – the videoID for \(self.artist) is \(self.vIDItems[i]["videoID"]!)")
                         }
                         
-                        print("   Event.swift – getVideosForArtist() - the videoID count for \(self.artist) is \(self.vIDItems.count)")
+                        //print("   Event.swift – getVideosForArtist() - the videoID count for \(self.artist) is \(self.vIDItems.count)")
 
                         // run the completion handler specified in DataViewController to load the new videos into the UI
                         completion()
@@ -486,7 +486,7 @@ class Event {
 
         })
     
-        print("   Event.swift - getVideosForArtst - end for \(self.artist)")
+        //print("   Event.swift - getVideosForArtst - end for \(self.artist)")
         
     }
     
