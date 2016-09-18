@@ -361,8 +361,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         let orientation = UIApplication.sharedApplication().statusBarOrientation
         
         if(orientation == .LandscapeLeft || orientation == .LandscapeRight) {
-            // 2 rows of 3
-            return CGSizeMake((collectionView.frame.size.width)/3 - cellSpacingsInStoryboard, (collectionView.frame.size.height)/2)
+            // 2 rows of 2
+            return CGSizeMake((collectionView.frame.size.width)/2 - cellSpacingsInStoryboard, (collectionView.frame.size.height)/2)
         }
         else { // portrait mode
             // 3 rows of 1
