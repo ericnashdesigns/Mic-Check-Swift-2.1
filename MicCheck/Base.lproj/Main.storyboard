@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="alr-B5-8tp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="alr-B5-8tp">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -318,7 +318,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GuH-l2-oTe" userLabel="ImgArtist">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GuH-l2-oTe" userLabel="ImgArtist">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="254"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Yr-kA-gSx" userLabel="viewVideoBottomLeft" customClass="YTPlayerView">
@@ -328,7 +328,7 @@
                                     <constraint firstAttribute="width" secondItem="9Yr-kA-gSx" secondAttribute="height" multiplier="16:9" id="yp5-g5-S5p"/>
                                 </constraints>
                                 <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="430" y="105" width="164" height="92"/>
+                                    <rect key="frame" x="429" y="105" width="165" height="92"/>
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Z8-zp-bpj" userLabel="viewVideoTopRight" customClass="YTPlayerView">
@@ -337,9 +337,6 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8Z8-zp-bpj" secondAttribute="height" multiplier="16:9" id="Hdd-AN-ARB"/>
                                 </constraints>
-                                <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="430" y="204" width="163" height="91"/>
-                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVq-Z1-0Oq" userLabel="viewVideoBottomRight" customClass="YTPlayerView">
                                 <rect key="frame" x="303" y="430" width="291" height="164"/>
@@ -348,7 +345,7 @@
                                     <constraint firstAttribute="width" secondItem="DVq-Z1-0Oq" secondAttribute="height" multiplier="16:9" id="bVX-UH-sel"/>
                                 </constraints>
                                 <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="430" y="302" width="164" height="92"/>
+                                    <rect key="frame" x="429" y="302" width="165" height="92"/>
                                 </variation>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Artist" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="cF2-Le-7mQ" userLabel="Artist">
@@ -357,9 +354,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
-                                <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="7" y="308" width="586" height="66"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4k-m0-MFX" userLabel="Venue">
                                 <rect key="frame" x="6" y="217" width="49" height="31"/>
@@ -378,6 +372,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="237" y="0.0" width="126" height="21"/>
+                                </variation>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8j-ne-iUV" userLabel="PrimaryColor Label">
                                 <rect key="frame" x="6" y="254" width="59" height="21"/>
@@ -585,7 +582,9 @@
                             <constraint firstItem="7vw-YA-ch0" firstAttribute="leading" secondItem="mmo-tk-4Aw" secondAttribute="trailing" constant="48" id="hIY-nJ-bGo"/>
                             <constraint firstItem="9Yr-kA-gSx" firstAttribute="top" secondItem="60e-cX-qHP" secondAttribute="bottom" constant="6" id="hvx-TJ-w6g"/>
                             <constraint firstItem="41M-lZ-QgI" firstAttribute="top" secondItem="lnh-WQ-LPz" secondAttribute="bottom" constant="3" id="hzV-bd-Qb1"/>
-                            <constraint firstItem="U2X-33-dW9" firstAttribute="top" secondItem="ZwX-cT-FIQ" secondAttribute="top" constant="14" id="ldp-8H-leB"/>
+                            <constraint firstItem="U2X-33-dW9" firstAttribute="top" secondItem="ZwX-cT-FIQ" secondAttribute="top" constant="14" id="ldp-8H-leB">
+                                <variation key="heightClass=compact" constant="7"/>
+                            </constraint>
                             <constraint firstItem="DVq-Z1-0Oq" firstAttribute="height" secondItem="60e-cX-qHP" secondAttribute="height" id="oE2-Ia-bEm"/>
                             <constraint firstItem="eZj-Ti-k3b" firstAttribute="baseline" secondItem="lnh-WQ-LPz" secondAttribute="baseline" id="ol7-r7-9b1"/>
                             <constraint firstItem="60e-cX-qHP" firstAttribute="trailing" secondItem="ZwX-cT-FIQ" secondAttribute="centerXWithinMargins" constant="-3" id="oxu-eO-7J1"/>
